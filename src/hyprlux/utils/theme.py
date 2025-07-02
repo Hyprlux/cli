@@ -1,7 +1,7 @@
 import subprocess
 from pathlib import Path
 
-from caelestia.utils.paths import c_state_dir, config_dir, templates_dir
+from hyprlux.utils.paths import c_state_dir, config_dir, templates_dir
 
 
 def gen_conf(colours: dict[str, str]) -> str:
@@ -97,12 +97,12 @@ def apply_discord(scss: str) -> None:
         conf = subprocess.check_output(["sass", "-I", tmp_dir, templates_dir / "discord.scss"], text=True)
 
     for client in "Equicord", "Vencord", "BetterDiscord", "equicord", "vesktop", "legcord":
-        write_file(config_dir / client / "themes/caelestia.theme.css", conf)
+        write_file(config_dir / client / "themes/hyprlux.theme.css", conf)
 
 
 def apply_spicetify(colours: dict[str, str], mode: str) -> None:
     template = gen_replace(colours, templates_dir / f"spicetify-{mode}.ini")
-    write_file(config_dir / "spicetify/Themes/caelestia/color.ini", template)
+    write_file(config_dir / "spicetify/Themes/hyprlux/color.ini", template)
 
 
 def apply_fuzzel(colours: dict[str, str]) -> None:
@@ -112,7 +112,7 @@ def apply_fuzzel(colours: dict[str, str]) -> None:
 
 def apply_btop(colours: dict[str, str]) -> None:
     template = gen_replace(colours, templates_dir / "btop.theme", hash=True)
-    write_file(config_dir / "btop/themes/caelestia.theme", template)
+    write_file(config_dir / "btop/themes/hyprlux.theme", template)
     subprocess.run(["killall", "-USR2", "btop"], stderr=subprocess.DEVNULL)
 
 
@@ -128,8 +128,8 @@ def apply_gtk(colours: dict[str, str], mode: str) -> None:
 
 def apply_qt(colours: dict[str, str], mode: str) -> None:
     template = gen_replace(colours, templates_dir / "qtcolors.conf", hash=True)
-    write_file(config_dir / "qt5ct/colors/caelestia.conf", template)
-    write_file(config_dir / "qt6ct/colors/caelestia.conf", template)
+    write_file(config_dir / "qt5ct/colors/hyprlux.conf", template)
+    write_file(config_dir / "qt6ct/colors/hyprlux.conf", template)
 
     qtct = (templates_dir / "qtct.conf").read_text()
     qtct = qtct.replace("{{ $mode }}", mode.capitalize())

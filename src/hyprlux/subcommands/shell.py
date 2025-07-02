@@ -1,7 +1,7 @@
 import subprocess
 from argparse import Namespace
 
-from caelestia.utils.paths import c_cache_dir
+from hyprlux.utils.paths import c_cache_dir
 
 
 class Command:
@@ -22,7 +22,7 @@ class Command:
             self.message(*self.args.message)
         else:
             # Start the shell
-            args = ["qs", "-n", "-c", "caelestia", "--log-rules", self.args.log_rules]
+            args = ["qs", "-n", "-c", "hyprlux", "--log-rules", self.args.log_rules]
             if self.args.daemon:
                 args.append("-d")
                 subprocess.run(args)
@@ -33,7 +33,7 @@ class Command:
                         print(line, end="")
 
     def shell(self, *args: list[str]) -> str:
-        return subprocess.check_output(["qs", "-c", "caelestia", *args], text=True)
+        return subprocess.check_output(["qs", "-c", "hyprlux", *args], text=True)
 
     def filter_log(self, line: str) -> bool:
         return (

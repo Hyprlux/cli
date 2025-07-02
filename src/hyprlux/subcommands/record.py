@@ -3,8 +3,8 @@ import time
 from argparse import Namespace
 from datetime import datetime
 
-from caelestia.utils.notify import notify
-from caelestia.utils.paths import recording_notif_path, recording_path, recordings_dir
+from hyprlux.utils.notify import notify
+from hyprlux.utils.paths import recording_notif_path, recording_path, recordings_dir
 
 
 class Command:

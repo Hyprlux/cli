@@ -1,13 +1,13 @@
 import argparse
 
-from caelestia.subcommands import clipboard, emoji, pip, record, scheme, screenshot, shell, toggle, wallpaper
-from caelestia.utils.paths import wallpapers_dir
-from caelestia.utils.scheme import get_scheme_names, scheme_variants
-from caelestia.utils.wallpaper import get_wallpaper
+from hyprlux.subcommands import clipboard, emoji, pip, record, scheme, screenshot, shell, toggle, wallpaper
+from hyprlux.utils.paths import wallpapers_dir
+from hyprlux.utils.scheme import get_scheme_names, scheme_variants
+from hyprlux.utils.wallpaper import get_wallpaper
 
 
 def parse_args() -> (argparse.ArgumentParser, argparse.Namespace):
-    parser = argparse.ArgumentParser(prog="caelestia", description="Main control script for the Caelestia dotfiles")
+    parser = argparse.ArgumentParser(prog="hyprlux", description="Main control script for the Hyprlux dotfiles")
 
     # Add subcommand parsers
     command_parser = parser.add_subparsers(

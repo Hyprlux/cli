@@ -1,4 +1,4 @@
-from caelestia.parser import parse_args
+from hyprlux.parser import parse_args
 
 
 def main() -> None:

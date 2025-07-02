@@ -3,7 +3,7 @@ import subprocess
 from argparse import Namespace
 from urllib.request import urlopen
 
-from caelestia.utils.paths import cli_data_dir
+from hyprlux.utils.paths import cli_data_dir
 
 
 class Command:

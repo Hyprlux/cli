@@ -1,7 +1,7 @@
 import subprocess
 from argparse import Namespace
 
-from caelestia.utils import hypr
+from hyprlux.utils import hypr
 
 
 class Command:

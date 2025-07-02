@@ -2,8 +2,8 @@ import json
 import random
 from pathlib import Path
 
-from caelestia.utils.notify import notify
-from caelestia.utils.paths import atomic_dump, scheme_data_dir, scheme_path
+from hyprlux.utils.notify import notify
+from hyprlux.utils.paths import atomic_dump, scheme_data_dir, scheme_path
 
 
 class Scheme:
@@ -154,7 +154,7 @@ class Scheme:
 
     def _update_colours(self) -> None:
         if self.name == "dynamic":
-            from caelestia.utils.material import get_colours_for_image
+            from hyprlux.utils.material import get_colours_for_image
 
             try:
                 self._colours = get_colours_for_image()
@@ -164,10 +164,10 @@ class Scheme:
                         "-u",
                         "critical",
                         "Unable to set dynamic scheme",
-                        "No wallpaper set. Please set a wallpaper via `caelestia wallpaper` before setting a dynamic scheme.",
+                        "No wallpaper set. Please set a wallpaper via `hyprlux wallpaper` before setting a dynamic scheme.",
                     )
                 raise ValueError(
-                    "No wallpaper set. Please set a wallpaper via `caelestia wallpaper` before setting a dynamic scheme."
+                    "No wallpaper set. Please set a wallpaper via `hyprlux wallpaper` before setting a dynamic scheme."
                 )
         else:
             self._colours = read_colours_from_file(self.get_colours_path())

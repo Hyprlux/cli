@@ -7,17 +7,17 @@ from materialyoucolor.hct import Hct
 from materialyoucolor.utils.color_utils import argb_from_rgb
 from PIL import Image
 
-from caelestia.utils.hypr import message
-from caelestia.utils.material import get_colours_for_image
-from caelestia.utils.paths import (
+from hyprlux.utils.hypr import message
+from hyprlux.utils.material import get_colours_for_image
+from hyprlux.utils.paths import (
     compute_hash,
     wallpaper_link_path,
     wallpaper_path_path,
     wallpaper_thumbnail_path,
     wallpapers_cache_dir,
 )
-from caelestia.utils.scheme import Scheme, get_scheme
-from caelestia.utils.theme import apply_colours
+from hyprlux.utils.scheme import Scheme, get_scheme
+from hyprlux.utils.theme import apply_colours
 
 
 def is_valid_image(path: Path | str) -> bool:
@@ -80,7 +80,7 @@ def get_smart_opts(wall: Path, cache: Path) -> str:
     except (IOError, json.JSONDecodeError):
         pass
 
-    from caelestia.utils.colourfulness import get_variant
+    from hyprlux.utils.colourfulness import get_variant
 
     opts = {}
 
